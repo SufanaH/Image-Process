@@ -1,10 +1,13 @@
 import supertest from 'supertest';
 import app from '../index';
+import 'jasmine';
+
+let Jasmine = require('jasmine');
 
 const request = supertest(app);
 
 describe('Test endpoint responses', () => {
-  it('Check default endpoint \'/\'', async (): Promise<void> => {
+  it("Check default endpoint '/'", async (): Promise<void> => {
     const response = await request.get('/');
     expect(response.status).toBe(200);
   });
